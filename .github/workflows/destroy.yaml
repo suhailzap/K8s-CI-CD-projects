@@ -1,0 +1,25 @@
+name: Destroy Infrastructure
+
+on:
+  workflow_run:
+    workflows: ["CI/CD Pipeline"]
+    types:
+      - completed
+
+jobs:
+  destroy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Initialize Terraform
+        run: |
+          cd terraform
+          terraform init
+
+      - name: Destroy Terraform Resources
+        run: |
+          cd terraform
+          terraform destroy -auto-approve
