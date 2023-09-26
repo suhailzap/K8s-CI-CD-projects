@@ -6,3 +6,16 @@ snap list --all
 
  sudo ln -s /snap/k9s/155/bin/k9s /snap/bin/k9s
 
+ aws eks --region eu-central-1 update-kubeconfig --name my-cluster
+
+An error occurred (InvalidSignatureException) when calling the DescribeCluster operation: Signature expired: 20230926T090057Z is now earlier than 20230926T093403Z (20230926T093903Z - 5 min.)
+Fix:
+sudo timedatectl set-ntp true
+
+ sudo apt install ntpdate
+
+
+ sudo ntpdate pool.ntp.org
+
+sudo systemctl start ntp
+sudo systemctl enable ntp
