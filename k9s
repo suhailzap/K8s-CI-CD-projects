@@ -1,4 +1,4 @@
-installing k9s :
+:installing k9s :
 sudo apt update
 sudo apt install snapd
 sudo snap install k9s
@@ -19,3 +19,12 @@ sudo timedatectl set-ntp true
 
 sudo systemctl start ntp
 sudo systemctl enable ntp
+
+
+Error:
+
+kubectl get pods --all-namespaces
+error: exec plugin: invalid apiVersion "client.authentication.k8s.io/v1alpha1"
+fix:
+pip3 install awscli --upgrade --user
+aws eks --region eu-central-1 update-kubeconfig --name my-cluster
