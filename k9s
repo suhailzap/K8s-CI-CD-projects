@@ -1,0 +1,8 @@
+installing k9s :
+sudo apt update
+sudo apt install snapd
+sudo snap install k9s
+snap list --all
+
+ sudo ln -s /snap/k9s/155/bin/k9s /snap/bin/k9s
+
