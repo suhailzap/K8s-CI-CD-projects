@@ -22,5 +22,5 @@ spec:
             cpu: "1"     # Updated CPU limit to 1 CPU core
             memory: "1Gi"  # Updated memory limit to 1 GiB
           requests:
-            cpu: "0.2"   # Updated CPU request to 0.2 CPU cores
+            cpu: "0.4"   # Updated CPU request to 0.2 CPU cores
             memory: "512Mi"  # Updated memory request to 256 MiB
