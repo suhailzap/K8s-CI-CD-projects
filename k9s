@@ -35,4 +35,35 @@ error: Metrics API not available
 fix 
  kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 
+New error :
+
+Error: creating KMS Alias (alias/eks/my-cluster): AlreadyExistsException: An alias with the name arn:aws:kms:eu-central-1:988153901792:alias/eks/my-cluster already exists
+│ 
+│   with module.eks.module.kms.aws_kms_alias.this["cluster"],
+│   on .terraform/modules/eks.kms/main.tf line 255, in resource "aws_kms_alias" "this":
+│  255: resource "aws_kms_alias" "this" {
+│ 
+╵
+╷
+│ Error: creating CloudWatch Logs Log Group (/aws/eks/my-cluster/cluster): ResourceAlreadyExistsException: The specified log group already exists
+│ 
+│   with module.eks.aws_cloudwatch_log_group.this[0],
+│   on .terraform/modules/eks/main.tf line 106, in resource "aws_cloudwatch_log_group" "this":
+│  106: resource "aws_cloudwatch_log_group" "this" {
+│ 
+╵
+Error: Process completed with exit code 1.
+
+
+Fix:
+
+aws kms delete-alias --alias-name alias/eks/my-cluster --region eu-central-1
+
+aws logs delete-log-group --log-group-name /aws/eks/my-cluster/cluster --region eu-central-1
+
+
+
+ 
+
+
 
