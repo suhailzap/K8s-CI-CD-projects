@@ -19,8 +19,8 @@ spec:
         - containerPort: 80
         resources:
           limits:
-            cpu: "0.5"  # Set the CPU limit to 0.5 CPU cores
-            memory: "512Mi"  # Set the memory limit to 512 MiB
+            cpu: "1"     # Updated CPU limit to 1 CPU core
+            memory: "1Gi"  # Updated memory limit to 1 GiB
           requests:
-            cpu: "0.1"  # Set the CPU request to 0.1 CPU cores
-            memory: "128Mi"  # Set the memory request to 128 MiB
+            cpu: "0.2"   # Updated CPU request to 0.2 CPU cores
+            memory: "512Mi"  # Updated memory request to 256 MiB
