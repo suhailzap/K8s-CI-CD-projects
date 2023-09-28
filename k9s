@@ -62,6 +62,10 @@ aws kms delete-alias --alias-name alias/eks/my-cluster --region eu-central-1
 aws logs delete-log-group --log-group-name /aws/eks/my-cluster/cluster --region eu-central-1
 
 
+ kubectl top pod
+error: Metrics API not available
+
+
 
  
 
